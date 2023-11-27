@@ -1,0 +1,56 @@
+17:22:22  Start
+17:22:24  Get NetworkCard: [VPID]VID_0B95&PID_1790[NAME]ASIX AX88179 USB 3.0 to Gigabit Ethernet Adapter #43[MAC]00:24:9B:68:00:1A
+17:22:24  Check USB3.0
+17:22:25  USB3.0 PASS
+17:22:25  Device Driver Regedit Check
+17:22:25  Lan Test Start
+17:22:27  Start Ping
+17:22:29  TEST PASS
+17:22:29  Waiting PlugOut
+17:22:31  Device PlugOut :Timer
+17:22:31  Waiting Device PlugIn...
+17:22:31  ==============
+17:22:32  Get NetworkCard: [VPID]VID_0B95&PID_1790[NAME]ASIX AX88179 USB 3.0 to Gigabit Ethernet Adapter #43[MAC]00:24:9B:68:00:1A
+17:22:33  Check USB3.0
+17:22:33  USB3.0 PASS
+17:22:33  Device Driver Regedit Check
+17:22:33  Lan Test Start
+17:22:35  Start Ping
+17:22:37  TEST PASS
+17:22:37  Waiting PlugOut
+17:22:37  Device PlugOut :Timer
+17:22:37  Waiting Device PlugIn...
+17:22:37  ==============
+17:22:41  Get NetworkCard: [VPID]VID_0B95&PID_1790[NAME]ASIX AX88179 USB 3.0 to Gigabit Ethernet Adapter #43[MAC]00:24:9B:68:00:1A
+17:22:41  Check USB3.0
+17:22:41  USB3.0 PASS
+17:22:41  Device Driver Regedit Check
+17:22:41  Lan Test Start
+17:22:43  Start Ping
+17:22:46  TEST PASS
+17:22:46  Waiting PlugOut
+17:22:46  Device PlugOut :Timer
+17:22:46  Waiting Device PlugIn...
+17:22:46  ==============
+17:23:51  Get NetworkCard: [VPID]VID_0B95&PID_1790[NAME]ASIX AX88179 USB 3.0 to Gigabit Ethernet Adapter #43[MAC]00:24:9B:68:00:1A
+17:23:51  Check USB3.0
+17:23:51  USB3.0 PASS
+17:23:51  Device Driver Regedit Check
+17:23:51  Lan Test Start
+17:23:57  Start Ping
+17:24:00  TEST PASS
+17:24:00  Waiting PlugOut
+17:24:03  Device PlugOut :Timer
+17:24:03  Waiting Device PlugIn...
+17:24:03  ==============
+17:24:04  Get NetworkCard: [VPID]VID_0B95&PID_1790[NAME]ASIX AX88179 USB 3.0 to Gigabit Ethernet Adapter #43[MAC]00:24:9B:68:00:1A
+17:24:04  Check USB3.0
+17:24:05  USB3.0 PASS
+17:24:05  Device Driver Regedit Check
+17:24:05  Lan Test Start
+17:24:19  Start Ping
+17:24:21  TEST PASS
+17:24:21  Waiting PlugOut
+17:24:30  Device PlugOut :Timer
+17:24:30  Waiting Device PlugIn...
+17:24:30  ==============

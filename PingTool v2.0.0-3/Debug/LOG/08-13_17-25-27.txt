@@ -1,0 +1,64 @@
+17:25:29  Start
+17:25:31  Get NetworkCard: [VPID]VID_0B95&PID_1790[NAME]ASIX AX88179 USB 3.0 to Gigabit Ethernet Adapter #46[MAC]00:24:9B:68:00:1A
+17:25:32  Check USB3.0
+17:25:32  USB3.0 PASS
+17:25:32  Device Driver Regedit Check
+17:25:32  Lan Test Start
+17:25:47  Not Find IP...
+17:25:47  TEST FAIL
+17:25:47  Waiting PlugOut
+17:25:50  Device PlugOut :Timer
+17:25:50  Waiting Device PlugIn...
+17:25:50  ==============
+17:25:54  Get NetworkCard: [VPID]VID_0B95&PID_1790[NAME]ASIX AX88179 USB 3.0 to Gigabit Ethernet Adapter #44[MAC]00:24:9B:68:00:BC
+17:25:54  Check USB3.0
+17:25:54  USB3.0 PASS
+17:25:54  Device Driver Regedit Check
+17:25:54  Lan Test Start
+17:26:09  Not Find IP...
+17:26:09  TEST FAIL
+17:26:09  Waiting PlugOut
+17:26:14  Device PlugOut :Timer
+17:26:14  Waiting Device PlugIn...
+17:26:14  ==============
+17:26:28  Get NetworkCard: [VPID]VID_0B95&PID_1790[NAME]ASIX AX88179 USB 3.0 to Gigabit Ethernet Adapter #46[MAC]00:24:9B:68:00:1A
+17:26:28  Check USB3.0
+17:26:29  USB3.0 PASS
+17:26:29  Device Driver Regedit Check
+17:26:29  Lan Test Start
+17:26:44  Not Find IP...
+17:26:44  TEST FAIL
+17:26:44  Waiting PlugOut
+17:26:47  Device PlugOut :Timer
+17:26:47  Waiting Device PlugIn...
+17:26:47  ==============
+17:26:49  Get NetworkCard: [VPID]VID_0B95&PID_1790[NAME]ASIX AX88179 USB 3.0 to Gigabit Ethernet Adapter #46[MAC]00:24:9B:68:00:1A
+17:26:49  Check USB3.0
+17:26:50  USB3.0 PASS
+17:26:50  Device Driver Regedit Check
+17:26:50  Lan Test Start
+17:26:52  Start Ping
+17:26:54  TEST PASS
+17:26:54  Waiting PlugOut
+17:26:56  Device PlugOut :Timer
+17:26:56  Waiting Device PlugIn...
+17:26:56  ==============
+17:26:58  Get NetworkCard: [VPID]VID_0B95&PID_1790[NAME]ASIX AX88179 USB 3.0 to Gigabit Ethernet Adapter #46[MAC]00:24:9B:68:00:1A
+17:26:58  Check USB3.0
+17:26:59  USB3.0 PASS
+17:26:59  Device Driver Regedit Check
+17:26:59  Lan Test Start
+17:27:01  Start Ping
+17:27:03  TEST PASS
+17:27:03  Waiting PlugOut
+17:27:06  Device PlugOut :Timer
+17:27:06  Waiting Device PlugIn...
+17:27:06  ==============
+17:27:10  Get NetworkCard: [VPID]VID_0B95&PID_1790[NAME]ASIX AX88179 USB 3.0 to Gigabit Ethernet Adapter #46[MAC]00:24:9B:68:00:1A
+17:27:10  Check USB3.0
+17:27:11  USB3.0 PASS
+17:27:11  Device Driver Regedit Check
+17:27:11  Lan Test Start
+17:27:13  Start Ping
+17:27:15  TEST PASS
+17:27:15  Waiting PlugOut

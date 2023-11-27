@@ -1,0 +1,212 @@
+//---------------------------------------------------------------------------
+
+#ifndef UnitUSBH
+#define UnitUSBH
+//---------------------------------------------------------------------------
+#include <Classes.hpp>
+#include <Controls.hpp>
+#include <StdCtrls.hpp>
+#include <Forms.hpp>
+#include <ComCtrls.hpp>
+#include <Dialogs.hpp>
+#include <StrUtils.hpp>
+#include <ExtCtrls.hpp>
+#include <Inifiles.hpp>
+
+#include "winioctl.h"
+#include "usbioctl.h"
+#include "malloc.h"
+#include "cfgmgr32.h"
+#include "vndrlist.h"
+#include "stdio.h"
+#include "SETUPAPI.H"
+
+
+
+//---------------------------------------------------------------------------
+class TForm1 : public TForm
+{
+__published:	// IDE-managed Components
+        TSaveDialog *SaveDialog1;
+        TGroupBox *GroupBox1;
+        TTreeView *TreeView1;
+        TSplitter *Splitter1;
+        TListBox *ListBox1;
+        TButton *cmdGetUSB;
+        TButton *cmdSave;
+	TButton *clear;
+	TButton *Button1;
+	TButton *Button2;
+	TMemo *Memo1;
+        void __fastcall cmdGetUSBClick(TObject *Sender);
+        void __fastcall TreeView1Click(TObject *Sender);
+        void __fastcall cmdSaveClick(TObject *Sender);
+        void __fastcall FormResize(TObject *Sender);
+        void __fastcall FormCreate(TObject *Sender);
+	void __fastcall Button1Click(TObject *Sender);
+	void __fastcall clearClick(TObject *Sender);
+	void __fastcall Button2Click(TObject *Sender);
+private:	// User declarations
+
+        bool                    DEBUG;      // Set to true to enable DEBUG messages
+        SECURITY_ATTRIBUTES     SA;         // Needed for Win2000
+        int                     treeCount;  //TreeView Count
+        int                     treeLevel;  //TreeView branch
+        int                     usbCount;   //For USB_Device_Handle_Array[20]
+        int                     treePn;     //TreeView branch point number
+        bool                    treeBack;   //TreeView branch back boolean
+        int                     treeRoot;   //TreeView root number
+        //------------------------------------------------------------------------
+
+        //USB Device HANDLE Array
+        struct _USB_Device_Handle_Array
+        {
+		  HANDLE      hWnd;
+          AnsiString  USBName;
+		  int         treeNode;
+          ULONG       port;
+          AnsiString  RootHubName;
+          AnsiString  devicePath;
+          AnsiString  deviceSN;
+          AnsiString  deviceDesc;
+        }USB_Device_Handle_Array[20];
+
+        //USB Device Information Array
+        struct _USB_Device_Information
+        {
+          AnsiString deviceDesc;
+          AnsiString localInfo;
+          AnsiString DeviceID;
+          AnsiString devicePath;
+          AnsiString deviceSN;
+        }USB_Device_Information;
+        //------------------------------------------------------------
+
+        //Define all stuctures using UCHAR or BOOLEAN so that
+        //the variables are not 'aligned' by the compiler
+        typedef struct _DESCRIPTOR_REQUEST
+        {
+          ULONG ConnectionIndex;
+          struct
+          {
+            UCHAR bmRequest;
+            UCHAR bRequest;
+            UCHAR wValue[2];
+            UCHAR wIndex[2];
+            UCHAR wLength[2];
+          } SetupPacket;
+
+          UCHAR Data[2048];
+        }DESCRIPTOR_REQUEST, *PDESCRIPTOR_REQUEST;
+
+        typedef struct _HUB_DESCRIPTOR
+        {
+          UCHAR bDescriptorLength;
+          UCHAR bDescriptorType;
+          UCHAR bNumberOfPorts;
+          UCHAR wHubCharacteristics[2];
+          UCHAR bPowerOnToPowerGood;
+          UCHAR bHubControlCurrent;
+          UCHAR bRemoveAndPowerMask[64];
+        }HUB_DESCRIPTOR, *PHUB_DESCRIPTOR;
+
+        typedef struct _USBDEVICEINFO
+        {
+          PUSB_NODE_INFORMATION               HubInfo;        // NULL if not a HUB
+          PCHAR                               HubName;        // NULL if not a HUB
+          PUSB_NODE_CONNECTION_INFORMATION    ConnectionInfo; // NULL if root HUB
+          PUSB_DESCRIPTOR_REQUEST             ConfigDesc;     // NULL if root HUB
+          PSTRING_DESCRIPTOR_NODE             StringDescs;
+        } USBDEVICEINFO, *PUSBDEVICEINFO;
+
+        typedef struct _DEVICE_DESCRIPTOR
+        {
+          UCHAR bLength;
+          UCHAR bDescriptorType;
+          UCHAR bcdUSB[2];
+          UCHAR bDeviceClass;
+          UCHAR bDeviceSubClass;
+          UCHAR bDeviceProtocol;
+          UCHAR bMaxPacketSize0;
+          UCHAR idVendor[2];
+          UCHAR idProduct[2];
+          UCHAR bcdDevice[2];
+          UCHAR iManufacturer;
+          UCHAR iProduct;
+          UCHAR iSerialNumber;
+          UCHAR bNumConfigurations;
+        }DEVICE_DESCRIPTOR;
+
+        typedef struct _NODE_INFORMATION
+        {
+          USB_HUB_NODE                        NodeType;
+          HUB_DESCRIPTOR                      HubDescriptor;
+          BOOLEAN                             HubIsBusPowered;
+        }NODE_INFORMATION, *PNODE_INFORMATION;
+
+        typedef struct _NODE_CONNECTION_INFORMATION
+        {
+          ULONG ConnectionIndex;
+          DEVICE_DESCRIPTOR DeviceDescriptor;
+          UCHAR CurrentConfigurationValue;
+          bool LowSpeed;
+          bool DeviceIsHub;
+          UCHAR DeviceAddress[2];
+          UCHAR NumberOfOpenPipes[4];
+          UCHAR ConnectionStatus[4];
+          USB_PIPE_INFO PipeList[32];
+        }NODE_CONNECTION_INFORMATION;
+
+        struct
+        {
+          ULONG ConnectionIndex;
+          ULONG ActualLength;
+		  WCHAR Name[256];
+        }ConnectedHub;
+
+        struct
+        {
+          ULONG Length;
+          WCHAR Name[256];
+        } UnicodeName;
+
+        // Common Class Endpoint Descriptor
+        typedef struct _USB_ENDPOINT_DESCRIPTOR2
+        {
+          UCHAR  bLength;             // offset 0, size 1
+          UCHAR  bDescriptorType;     // offset 1, size 1
+          UCHAR  bEndpointAddress;    // offset 2, size 1
+          UCHAR  bmAttributes;        // offset 3, size 1
+          USHORT wMaxPacketSize;      // offset 4, size 2
+          USHORT wInterval;           // offset 6, size 2
+          UCHAR  bSyncAddress;        // offset 8, size 1
+        }USB_ENDPOINT_DESCRIPTOR2, *PUSB_ENDPOINT_DESCRIPTOR2;
+
+
+        DWORD EnumerateHostController(HANDLE HostControllerHandle);
+        void GetPortData(HANDLE HubHandle, UCHAR PortCount, int HubDepth);
+        USHORT DisplayDeviceDescriptor (HANDLE HubHandle, ULONG PortIndex, USHORT LanguageID, PUCHAR BufferPtr);
+        USHORT DisplayConfigurationDescriptor(HANDLE HubHandle, ULONG PortIndex, USHORT LanguageID);
+        PCHAR DriverNameToDeviceDesc(PCHAR DriverName);
+        void DriverNameToDeviceDescInfo(PCHAR DriverName);
+        PCHAR GetHCDDriverKeyName (HANDLE  HCD);
+        PCHAR WideStrToMultiStr (PWCHAR WideStr);
+        PCHAR GetDriverKeyName (HANDLE Hub, ULONG ConnectionIndex);
+        USHORT DisplayStringDescriptor (HANDLE HubHandle, ULONG PortIndex, USHORT LanguageID, UCHAR Index);
+        void TreeLeaf(AnsiString Branch, AnsiString BranchName, int blevel);
+        void OutPutHubInfomation(USHORT wHubChar);
+        PCHAR GetVendorString(USHORT idVendor);
+        void DisplayPipeInfo(ULONG NumPipes, USB_PIPE_INFO *PipeInfo);
+        void DisplayEndpointDescriptor(PUSB_ENDPOINT_DESCRIPTOR EndpointDesc);
+        void GetUSBDeviceAlong(HANDLE HubHandle, int PortIndex);
+        AnsiString LookingString(AnsiString Sour, AnsiString Dest);
+        //GUID OpenINIFiles(AnsiString SectionName);
+
+
+public:		// User declarations
+        __fastcall TForm1(TComponent* Owner);
+};
+//---------------------------------------------------------------------------
+extern PACKAGE TForm1 *Form1;
+//---------------------------------------------------------------------------
+#endif

@@ -1,0 +1,83 @@
+09:36:50  Start
+09:36:52  Get NetworkCard: [VPID]VID_0B95&PID_1790[NAME]ASIX AX88179 USB 3.0 to Gigabit Ethernet Adapter #43[MAC]00:24:9B:68:00:C8
+09:36:52  Check USB3.0
+09:36:52  USB3.0 PASS
+09:36:53  Device Driver Regedit Check
+09:36:53  Lan Test Start
+09:36:55  Start Ping
+09:36:55  TEST PASS
+09:36:55  Waiting PlugOut
+09:37:13  Device PlugOut :Timer
+09:37:13  Waiting Device PlugIn...
+09:37:13  ==============
+09:37:16  Get NetworkCard: [VPID]VID_0B95&PID_1790[NAME]ASIX AX88179 USB 3.0 to Gigabit Ethernet Adapter #43[MAC]00:24:9B:68:00:C8
+09:37:16  Check USB3.0
+09:37:17  USB3.0 PASS
+09:37:17  Device Driver Regedit Check
+09:37:17  Lan Test Start
+09:37:19  Start Ping
+09:37:19  TEST PASS
+09:37:19  Waiting PlugOut
+09:38:22  Device PlugOut :Timer
+09:38:22  Waiting Device PlugIn...
+09:38:22  ==============
+09:38:24  Get NetworkCard: [VPID]VID_0B95&PID_1790[NAME]ASIX AX88179 USB 3.0 to Gigabit Ethernet Adapter #43[MAC]00:24:9B:68:00:C8
+09:38:24  Check USB3.0
+09:38:24  USB3.0 PASS
+09:38:24  Device Driver Regedit Check
+09:38:24  Lan Test Start
+09:38:26  Start Ping
+09:38:26  網速未達到1000M(Speed of PING Fail)
+09:38:26  TEST FAIL
+09:38:26  Waiting PlugOut
+09:38:31  Device PlugOut :Timer
+09:38:31  Waiting Device PlugIn...
+09:38:31  ==============
+09:38:33  Get NetworkCard: [VPID]VID_0B95&PID_1790[NAME]ASIX AX88179 USB 3.0 to Gigabit Ethernet Adapter #43[MAC]00:24:9B:68:00:C8
+09:38:34  Check USB3.0
+09:38:34  USB3.0 PASS
+09:38:34  Device Driver Regedit Check
+09:38:34  Lan Test Start
+09:38:36  Start Ping
+09:38:36  網速未達到1000M(Speed of PING Fail)
+09:38:36  TEST FAIL
+09:38:36  Waiting PlugOut
+09:38:43  Device PlugOut :Timer
+09:38:43  Waiting Device PlugIn...
+09:38:43  ==============
+09:38:46  Get NetworkCard: [VPID]VID_0B95&PID_1790[NAME]ASIX AX88179 USB 3.0 to Gigabit Ethernet Adapter #43[MAC]00:24:9B:68:00:C8
+09:38:46  Check USB3.0
+09:38:47  USB3.0 PASS
+09:38:47  Device Driver Regedit Check
+09:38:47  Lan Test Start
+09:38:49  Start Ping
+09:38:49  網速未達到1000M(Speed of PING Fail)
+09:38:49  TEST FAIL
+09:38:49  Waiting PlugOut
+09:38:55  Device PlugOut :Timer
+09:38:55  Waiting Device PlugIn...
+09:38:55  ==============
+09:39:05  Get NetworkCard: [VPID]VID_0B95&PID_1790[NAME]ASIX AX88179 USB 3.0 to Gigabit Ethernet Adapter #43[MAC]00:24:9B:68:00:C8
+09:39:06  Check USB3.0
+09:39:06  USB3.0 PASS
+09:39:06  Device Driver Regedit Check
+09:39:06  Lan Test Start
+09:39:17  Start Ping
+09:39:17  網速未達到1000M(Speed of PING Fail)
+09:39:17  TEST FAIL
+09:39:17  Waiting PlugOut
+09:39:37  Device PlugOut :Timer
+09:39:37  Waiting Device PlugIn...
+09:39:37  ==============
+09:39:38  Get NetworkCard: [VPID]VID_0B95&PID_1790[NAME]ASIX AX88179 USB 3.0 to Gigabit Ethernet Adapter #43[MAC]00:24:9B:68:00:C8
+09:39:39  Check USB3.0
+09:39:39  USB3.0 PASS
+09:39:39  Device Driver Regedit Check
+09:39:39  Lan Test Start
+09:39:41  Start Ping
+09:39:41  TEST PASS
+09:39:41  Waiting PlugOut
+09:39:44  Device PlugOut :Timer
+09:39:44  Waiting Device PlugIn...
+09:39:44  ==============
+09:43:08  Stop

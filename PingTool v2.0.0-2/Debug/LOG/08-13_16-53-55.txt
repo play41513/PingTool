@@ -1,0 +1,9 @@
+16:53:58  Start
+16:54:01  Get NetworkCard: [VPID]VID_0B95&PID_1790[NAME]ASIX AX88179 USB 3.0 to Gigabit Ethernet Adapter #46[MAC]00:24:9B:68:00:1A
+16:54:01  Check USB3.0
+16:54:01  USB3.0 PASS
+16:54:01  Device Driver Regedit Check
+16:54:01  Lan Test Start
+16:54:03  Start Ping
+16:54:05  TEST PASS
+16:54:05  Waiting PlugOut

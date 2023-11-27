@@ -1,0 +1,4 @@
+16:56:03  Device PlugIn :ASIX AX88179 USB 3.0 to Gigabit Ethernet Adapter #46
+16:56:05  Device PlugOut
+16:56:08  Device PlugIn :ASIX AX88179 USB 3.0 to Gigabit Ethernet Adapter #46
+16:56:10  Device PlugOut

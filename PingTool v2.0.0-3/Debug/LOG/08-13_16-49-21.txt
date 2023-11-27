@@ -1,0 +1,16 @@
+16:49:25  Start
+16:49:46  Device PlugOut :Timer2
+16:49:46  Get NetworkCard: [VPID][NAME]ASIX AX88179 USB 3.0 to Gigabit Ethernet Adapter #43[MAC]NO Device
+16:49:46  Check USB3.0
+16:49:47  USB3.0 FAIL
+16:49:47  Device PlugOut :Timer2
+16:49:47  Device PlugOut :Timer
+16:49:47  Waiting Device PlugIn...
+16:49:47  ==============
+16:50:20  Device PlugOut :Timer2
+16:50:39  Get NetworkCard: [VPID][NAME]ASIX AX88179 USB 3.0 to Gigabit Ethernet Adapter #43[MAC]NO Device
+16:50:45  Check USB3.0
+16:50:51  USB3.0 FAIL
+16:50:51  Device PlugOut :Timer
+16:50:51  Waiting Device PlugIn...
+16:50:51  ==============

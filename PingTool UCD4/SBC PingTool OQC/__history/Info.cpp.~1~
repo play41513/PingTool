@@ -1,0 +1,66 @@
+//---------------------------------------------------------------------------
+
+#include <vcl.h>
+#pragma hdrstop
+
+#include "Info.h"
+#include "Hub_fun.h"
+#include "logging.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+#pragma resource "*.dfm"
+TfrmInfo *frmInfo;
+Port_test *PORT = new Port_test();
+//---------------------------------------------------------------------------
+__fastcall TfrmInfo::TfrmInfo(TComponent* Owner)
+	: TForm(Owner)
+{
+}
+//---------------------------------------------------------------------------
+void __fastcall TfrmInfo::btn_setClick(TObject *Sender)
+{
+	char filename[] = "TEST_TOOL\\infomation.txt";
+	fstream fp;
+	fp.open(filename, ios::out); // 開啟檔案
+	fp << "TEST ITEM" << endl;
+	if(mac_check->Checked) fp << "MAC_true" << endl;
+	else fp << "MAC_false" << endl;
+	if(lan_check->Checked) fp << "LAN_true" << endl;
+	else fp << "LAN_false" << endl;
+	fp << "MAC SITE" << endl;
+	fp << ((AnsiString)macset_edit->Text).c_str() << endl;
+	fp << "LAN_TEST_INFO" << endl;
+	fp << ((AnsiString)LAN_Ping->Text).c_str() << endl << endl;
+	fp.close(); // 關閉檔案
+	Logging();  //寫MAC LOG 取消設定LOG
+	ModalResult=mrYes;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfrmInfo::FormCreate(TObject *Sender)
+{
+	///////////////////////////////////////////////////////////// 環境設定
+	if(PORT->Findfilemsg("TEST_TOOL\\infomation.txt", "TEST ITEM", 1) == "MAC_true") mac_check->Checked = true;
+	else mac_check->Checked = false;
+	if(PORT->Findfilemsg("TEST_TOOL\\infomation.txt", "TEST ITEM", 2) == "LAN_true") lan_check->Checked = true;
+	else lan_check->Checked = false;
+	macset_edit->Text = PORT->Findfilemsg("TEST_TOOL\\infomation.txt", "MAC SITE", 1);
+	LAN_Ping->Text = PORT->Findfilemsg("TEST_TOOL\\infomation.txt", "LAN_TEST_INFO", 1);
+}
+//---------------------------------------------------------------------------
+void __fastcall TfrmInfo::Logging(){
+	LOG_INFO()<< _T("SET START:////////////////////////////////");
+	LOG_INFO()<< _T("TEST ITEM");
+	if(mac_check->Checked) LOG_INFO()<< _T("MAC_true");
+	else LOG_INFO()<< _T("MAC_false");
+	if(lan_check->Checked) LOG_INFO()<< _T("LAN_true");
+	else LOG_INFO()<< _T("LAN_false");
+	LOG_INFO()<< _T("MAC SITE");
+	LOG_INFO()<< _T(((AnsiString)macset_edit->Text).c_str());
+	LOG_INFO()<< _T("LAN_TEST_INFO");
+	LOG_INFO()<< _T(((AnsiString)LAN_Ping->Text).c_str());
+	LOG_INFO()<< _T("SET END:////////////////////////////////");
+}
+
+
+
